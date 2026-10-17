@@ -18,7 +18,8 @@ Backports 1.21.2+ tooltip GUI sprites to NeoForge 1.21.1. Client-side only.
 - 如果边框动画不动，先排查整合包里的渲染优化类模组。
 - 代码由 AI 辅助编写（Deepseek Claude GLM) 经人工整理和测试。
 - 不是 Mojang 或微软的官方产品，与资源包作者无官方关系。
-
+- 模组灵感来源于 哔哩哔哩bilibili 绪山吴聊
+  
 ## 许可证
 
 MIT
