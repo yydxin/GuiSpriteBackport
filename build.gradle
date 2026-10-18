@@ -1,0 +1,69 @@
+// 插件版本 2.0.141 的确认方式（任选其一，都能在报错前确认它存在）：
+//   1) 浏览器打开 Gradle 插件门户的元数据：
+//      https://plugins.gradle.org/m2/net/neoforged/moddev-gradle/maven-metadata.xml
+//      在 <versions> 里找 2.0.141；页面 404 / 没有这个号就说明不存在。
+//   2) 打开 https://plugins.gradle.org/plugin/net.neoforged.moddev ，右侧 "Versions" 下拉里有没有。
+//   3) 直接跑 `gradle help --refresh-dependencies`，插件解析失败会在这一步就报
+//      "Plugin [id: 'net.neoforged.moddev', version: '2.0.141'] was not found"，不会等到编译才炸。
+// 注：ModDevGradle 的新版本有时只发布在 maven.neoforged.net，Gradle 插件门户上会滞后。
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.141'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+
+base {
+    archivesName = project.mod_id
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories {
+    mavenLocal()
+}
+
+neoForge {
+    // 只写 NeoForge 版本，Minecraft / 映射 / 依赖由 ModDevGradle 自动装配
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+            // 调试用：JVM 参数放这里，不要写死到 gradle.properties
+            jvmArguments.addAll('-XX:+UseG1GC', '-Xmx3G')
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+// 让 jar 里带上 Implementation-Version，neoforge.mods.toml 的 ${file.jarVersion} 才能解析
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                'Specification-Title'    : project.mod_id,
+                'Specification-Vendor'   : project.mod_authors,
+                'Specification-Version'  : '1',
+                'Implementation-Title'   : project.mod_name,
+                'Implementation-Version' : project.version,
+                'Implementation-Vendor'  : project.mod_authors
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// 源码/资源里如果有中文，确保打包不乱码
+tasks.withType(ProcessResources).configureEach {
+    filteringCharset = 'UTF-8'
+}

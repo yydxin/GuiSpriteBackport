@@ -1,0 +1,7 @@
+{
+  "guispritebackport.configuration.title": "GuiSpriteBackport",
+  "guispritebackport.configuration.section.guispritebackport.client.toml": "Client",
+  "guispritebackport.configuration.section.guispritebackport.client.toml.title": "GuiSpriteBackport Client Settings",
+  "guispritebackport.configuration.sprite_tooltip_enabled": "Use 1.21.2 tooltip sprites",
+  "guispritebackport.configuration.sprite_tooltip_enabled.tooltip": "When the active resource pack provides minecraft:tooltip/background and minecraft:tooltip/frame, draw the tooltip with them. Disable to force the vanilla 1.21.1 solid background."
+}

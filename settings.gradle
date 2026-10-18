@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        // ModDevGradle 的新版本只发布在 NeoForged 自己的 maven 上
+        maven {
+            name = 'NeoForged'
+            url = 'https://maven.neoforged.net/releases'
+        }
+    }
+}
+
+plugins {
+    // 自动下载/定位 JDK 21 工具链；如果本机已有 JDK 21，可以删掉这一行
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
+rootProject.name = 'guispritebackport'

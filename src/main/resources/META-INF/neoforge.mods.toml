@@ -1,0 +1,36 @@
+modLoader = "javafml"
+# 官方 1.21.1 的 MDK 写的是 [4,)，这里放宽到 [1,)：
+# 只要求 FML 存在即可，避免因为 FML 大版本号不一致直接拒绝加载。
+loaderVersion = "[1,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/yydxin/GuiSpriteBackport/issues"
+
+# 纯客户端模组：服务端不装也不影响进服
+displayTest = "IGNORE_ALL_VERSION"
+
+[[mixins]]
+    config = "guispritebackport.mixins.json"
+
+[[mods]]
+    modId = "guispritebackport"
+    # 这里写死版本，避免 ${file.jarVersion} 在开发环境（目录形式的 mod file）里取不到值。
+    # 改版本时同步改 gradle.properties 的 mod_version。
+    version = "0.1.0"
+    displayName = "GuiSpriteBackport"
+    authors = "yydxin"
+    description = '''Backports 1.21.2+ tooltip GUI sprites (minecraft:tooltip/background and minecraft:tooltip/frame) to NeoForge 1.21.1. Client side only.'''
+
+# side = "CLIENT" 表示这两条依赖只在客户端检查
+[[dependencies.guispritebackport]]
+    modId = "neoforge"
+    type = "required"
+    versionRange = "[21.1.0,)"
+    ordering = "NONE"
+    side = "CLIENT"
+
+[[dependencies.guispritebackport]]
+    modId = "minecraft"
+    type = "required"
+    versionRange = "[1.21.1,1.22)"
+    ordering = "NONE"
+    side = "CLIENT"

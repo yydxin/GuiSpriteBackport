@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.example.guispritebackport.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "TooltipRenderUtilMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
