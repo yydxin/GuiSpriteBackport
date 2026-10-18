@@ -1,15 +1,14 @@
 # GuiSpriteBackport
 
-NeoForge 1.21.1 客户端模组：让 1.21.1 支持 1.21.2+ 资源包的提示框贴图
+让老版本支持 1.21.2+ 资源包的提示框贴图与动态按钮
 （`tooltip/background` 和 `tooltip/frame`）。
 
 Backports 1.21.2+ tooltip GUI sprites to NeoForge 1.21.1. Client-side only.
 
 ## 使用
 
-1. 安装 NeoForge 最新版本大于21.1.150 游戏版本1.21.1和依赖 Java 21。
-2. 把 jar 放进 `mods/`（在 Releases 页面下载）。
-3. 启用带提示框贴图的资源包。资源包里没有这两张图时，会自动用原版提示框。
+1. 把 jar 放进 `mods/`（在 Releases 页面下载）。
+2. 启用带提示框贴图的资源包。资源包里没有这两张图时，会自动用原版提示框。
 
 ## 说明
 
