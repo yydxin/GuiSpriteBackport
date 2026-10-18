@@ -7,7 +7,7 @@ Backports 1.21.2+ tooltip GUI sprites to NeoForge 1.21.1. Client-side only.
 
 ## 使用
 
-1. 安装 NeoForge 最新版本大于21.1/50 游戏版本1.21.1和依赖 Java 21。
+1. 安装 NeoForge 最新版本大于21.1.150 游戏版本1.21.1和依赖 Java 21。
 2. 把 jar 放进 `mods/`（在 Releases 页面下载）。
 3. 启用带提示框贴图的资源包。资源包里没有这两张图时，会自动用原版提示框。
 
